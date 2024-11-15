@@ -5,9 +5,9 @@
         /// <summary>
         /// Numerator of the fraction.
         /// </summary>
-        public Integer Numerator { get; set; } = new Integer(0);
+        public Integer Numerator { get; set; } = 0;
 
-        private Integer _denominator = new Integer(1);
+        private Integer _denominator = 1;
         /// <summary>
         /// Denominator of the fraction.
         /// </summary>
@@ -174,7 +174,7 @@
         /// <param name="a">First number to compare.</param>
         /// <param name="b">Second number to compare.</param>
         /// <returns>Greatest common divisor.</returns>
-        private int GreatestCommonDivisor(int a, int b)
+        static private int GreatestCommonDivisor(int a, int b)
         {
             while (b != 0)
             {
