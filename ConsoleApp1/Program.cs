@@ -8,7 +8,7 @@ namespace ConsoleApp1
         public static void Main(string[] args)
         {
 
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Start:\n");
 
             while (true)
             {
@@ -24,6 +24,7 @@ namespace ConsoleApp1
                 Console.WriteLine((double)n + " (double)");
                 Console.WriteLine((float)n + " (float)");
                 Console.WriteLine((decimal)n + " (decimal)");
+                Console.WriteLine();
             }
         }
 

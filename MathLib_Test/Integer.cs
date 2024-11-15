@@ -34,8 +34,13 @@
 
         public static implicit operator Integer(int value)
         {
-            return new Integer((int)value);
+            return new Integer(value);
         }
+
+        //public static implicit operator int(Integer value)
+        //{
+        //    return value;
+        //}
 
         #endregion
 

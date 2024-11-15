@@ -2,9 +2,32 @@
 {
     public class RationalNumber
     {
+        /// <summary>
+        /// Numerator of the fraction.
+        /// </summary>
         public Integer Numerator { get; set; } = new Integer(0);
-        public Integer Denominator { get; set; } = new Integer(1);
 
+        private Integer _denominator = new Integer(1);
+        /// <summary>
+        /// Denominator of the fraction.
+        /// </summary>
+        public Integer Denominator
+        {
+            get => _denominator;
+            set
+            {
+                if (value.Value == 0)
+                    throw new ArgumentException("RationalNumber.Denominator cannot be equal 0.");
+                else
+                    _denominator = value;
+            }
+        }
+
+        /// <summary>
+        /// RationalNumber constructor.
+        /// </summary>
+        /// <param name="numerator">Numerator of fraction.</param>
+        /// <param name="denominator">Denominator of fraction. (It cannot be equal 0)</param>
         public RationalNumber(Integer numerator, Integer denominator)
         {
             Numerator = numerator;
@@ -14,6 +37,10 @@
                 Simplify();
         }
 
+        /// <summary>
+        /// RationalNumber constructor.
+        /// </summary>
+        /// <param name="doubleNumber">Double as the fraction.</param>
         public RationalNumber(double doubleNumber)
         {
             const double tolerance = 1E-10;
@@ -75,6 +102,13 @@
             }
         }
 
+        /// <summary>
+        /// Transforms to fractional form with integers extracted.
+        /// </summary>
+        /// <returns>Returns pair
+        /// (WholePart - Integer as a whole part,
+        /// FractionslPart - RationalNumber as a complement of fraction).
+        /// </returns>
         public (Integer WholePart, RationalNumber? FractionalPart) ToMixedPair()
         {
             int wholePart = Numerator.Value / Denominator.Value;
@@ -97,7 +131,7 @@
         /// <summary>
         /// New ToString() method.
         /// </summary>
-        /// <returns>Returns "[Numerator]/[Denominator]".</returns>
+        /// <returns>Fraction.</returns>
         public override string ToString()
         {
             // without whole part:
@@ -134,6 +168,12 @@
 
         #region Helpers
 
+        /// <summary>
+        /// Greatest common divisor of two numbers.
+        /// </summary>
+        /// <param name="a">First number to compare.</param>
+        /// <param name="b">Second number to compare.</param>
+        /// <returns>Greatest common divisor.</returns>
         private int GreatestCommonDivisor(int a, int b)
         {
             while (b != 0)
