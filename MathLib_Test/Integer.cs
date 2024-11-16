@@ -30,6 +30,9 @@
 
         public override string ToString() => Value.ToString();
 
+        public Root ToRoot() => new Root(Value, 1);
+        public RationalNumber ToRationalNumber() => new RationalNumber(Value);
+
         #region Conversions
 
         public static implicit operator Integer(int value)
