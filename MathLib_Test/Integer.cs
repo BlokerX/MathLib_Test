@@ -8,16 +8,12 @@
         /// <summary>
         /// Value.
         /// </summary>
-        public int Value
-        {
-            get;
-            set;
-        }
+        public int Value { get; set; }
 
         /// <summary>
         /// If negative is true, else is flase.
         /// </summary>
-        //public bool? IsNegative { get; set; }
+        public bool IsNegative => Value < 0;
 
         /// <summary>
         /// Constructor for integer.
@@ -47,15 +43,23 @@
 
         #endregion
 
-        // todo constructors with:
+        #region Operations
 
-        // - uint
+        public static Integer operator +(Integer a) => a;
+        public static Integer operator -(Integer a) => new Integer(-a.Value);
 
-        // - long
-        // - ulong
-        // - byte
-        // - short
-        // - ushort
+        public static Integer operator +(Integer a, Integer b) => new Integer(a.Value + b.Value);
+        public static Integer operator -(Integer a, Integer b) => new Integer(a.Value - b.Value);
+        public static Integer operator *(Integer a, Integer b) => new Integer(a.Value * b.Value);
+        public static Integer operator /(Integer a, Integer b)
+        {
+            if (b.Value == 0) throw new DivideByZeroException();
+            return new Integer(a.Value / b.Value);
+        }
+
+        public static Integer operator %(Integer a, Integer b) => new Integer(a.Value % b.Value);
+
+        #endregion
 
     }
 }

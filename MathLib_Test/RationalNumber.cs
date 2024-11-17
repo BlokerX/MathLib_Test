@@ -166,6 +166,41 @@
 
         #endregion
 
+        #region Operations
+
+        // RationalNumber
+        public static RationalNumber operator +(RationalNumber a) => a;
+        public static RationalNumber operator -(RationalNumber a) => new RationalNumber(-a.Numerator, a.Denominator);
+        public static RationalNumber operator ++(RationalNumber a) => new RationalNumber(a.Numerator + 1, a.Denominator);
+        public static RationalNumber operator --(RationalNumber a) => new RationalNumber(a.Numerator - 1, a.Denominator);
+
+
+        // RationalNumber X RationalNumber
+        public static RationalNumber operator +(RationalNumber a, RationalNumber b) => new RationalNumber(a.Numerator * b.Denominator + b.Numerator * a.Denominator, a.Denominator * b.Denominator);
+        public static RationalNumber operator -(RationalNumber a, RationalNumber b) => new RationalNumber(a.Numerator * b.Denominator - b.Numerator * a.Denominator, a.Denominator * b.Denominator);
+        public static RationalNumber operator *(RationalNumber a, RationalNumber b) => new RationalNumber(a.Numerator * b.Numerator, a.Denominator * b.Denominator);
+        public static RationalNumber operator /(RationalNumber a, RationalNumber b) => new RationalNumber(a.Numerator * b.Denominator, a.Denominator * b.Numerator);
+
+        // RationalNumber X double
+        public static RationalNumber operator +(RationalNumber a, double b) => a + new RationalNumber(b);
+        public static RationalNumber operator -(RationalNumber a, double b) => a - new RationalNumber(b);
+        public static RationalNumber operator *(RationalNumber a, double b) => a * new RationalNumber(b);
+        public static RationalNumber operator /(RationalNumber a, double b) => a / new RationalNumber(b);
+
+        // RationalNumber X Integer
+        public static RationalNumber operator +(RationalNumber a, Integer b) => a + new RationalNumber(b.Value);
+        public static RationalNumber operator -(RationalNumber a, Integer b) => a - new RationalNumber(b.Value);
+        public static RationalNumber operator *(RationalNumber a, Integer b) => a * new RationalNumber(b.Value);
+        public static RationalNumber operator /(RationalNumber a, Integer b) => a / new RationalNumber(b.Value);
+
+        // todo float and decimal
+        //public static RationalNumber operator +(RationalNumber a, float b) => a + new RationalNumber(b);
+        //public static RationalNumber operator -(RationalNumber a, float b) => a - new RationalNumber(b);
+        //public static RationalNumber operator *(RationalNumber a, float b) => a * new RationalNumber(b);
+        //public static RationalNumber operator /(RationalNumber a, float b) => a / new RationalNumber(b);
+
+        #endregion
+
         #region Helpers
 
         /// <summary>
