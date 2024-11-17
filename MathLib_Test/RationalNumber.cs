@@ -164,6 +164,12 @@
             return rational.Numerator.Value / ((decimal)rational.Denominator.Value);
         }
 
+        // Operator konwersji z Integer
+        public static implicit operator RationalNumber(Integer integer)
+        {
+            return new RationalNumber(integer.Value, 1);
+        }
+
         #endregion
 
         #region Operations

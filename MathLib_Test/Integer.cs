@@ -36,10 +36,10 @@
             return new Integer(value);
         }
 
-        //public static implicit operator int(Integer value)
-        //{
-        //    return value;
-        //}
+        public static explicit operator int(Integer value)
+        {
+            return value.Value;
+        }
 
         #endregion
 
